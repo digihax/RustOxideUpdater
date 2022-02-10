@@ -23,7 +23,8 @@ Suggested implementation:
 
 
 REQUIREMENTS   
-   
+
+0) Windows.
 1) Your Rust server, with Oxide, must have had at least one startup, to create the \ConsoleOutput.txt file
 2) Your Rust server must not currently be running
 3) You must be able to run powershell commands.
