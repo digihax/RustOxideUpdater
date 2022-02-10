@@ -1,8 +1,8 @@
 # RustOxideUpdater
 
 by Digihax, aka The Professor, and Admin/Owner of AZ Casual rust server
-   v.01: Initial Release
-   v.02: Fixed issue with local version check reliability.  Add cleanup at start, of local txt files created.
+     v.01: Initial Release
+     v.02: Fixed issue with local version check reliability.  Add cleanup at start, of local txt files created.
 
 CAUTION:
 As with any resource available on the Internet, use at your own risk.
