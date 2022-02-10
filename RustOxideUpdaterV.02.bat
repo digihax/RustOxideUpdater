@@ -1,6 +1,6 @@
 :: This script brought to you by Digihax, aka The Professor, Admin of AZ Casual Rust Server
 :: Published 2/9/2022
-:: Updated 2/10/2022 - Initial local version check was not reliable.  Created an alternate version check
+:: Updated 2/10/2022 - v.02 - Initial local version check was not reliable.  Created an alternate version check.  Added txt file cleanup
 
 :: CHANGE THIS to your local rust installation, with no trailing "\"
 Set RustPath=c:\Your\Rust\Root\Folder
