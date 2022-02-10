@@ -1,7 +1,11 @@
 # RustOxideUpdater
 
-by Digihax, aka The Professor
-Admin, AZ Casual rust server
+by Digihax, aka The Professor, and Admin/Owner of AZ Casual rust server
+
+CAUTION:
+As with any resource available on the Internet, use at your own risk.
+Use on a test server first.
+I have tested this on multiple servers, but it may not work for you.
 
 DESCRIPTION
 
