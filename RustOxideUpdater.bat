@@ -1,3 +1,6 @@
+:: This script brought to you by Digihax, aka The Professor, Admin of AZ Casual Rust Server
+:: Updated 2/9/2022
+
 :: CHANGE THIS to your local rust installation, with no trailing "\"
 Set RustPath=c:\Your\Rust\Root\Folder
 cd %RustPath%
