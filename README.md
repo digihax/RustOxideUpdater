@@ -18,7 +18,7 @@ INSTRUCTIONS
 
 1) You *must* edit the batch file, and add the location of your Rust Installation , such as c:\RustServer  
    Example: Set RustPath=c:\Rustserver  
-2) You *must* add a switch, like -logFile "c:/RustServer/ConsoleOutput.txt", which places ConsoleOutput.txt file in same location as your RustPath.  
+2) You *must* add a switch to your Rust startup line, like -logFile "c:/RustServer/ConsoleOutput.txt", which places ConsoleOutput.txt file in same location as your RustPath.  
 
 Suggested implementation:
    Add a line, "start RustOxideUpdater.bat" to your startup script, PRIOR to the start of your server startup line (RustDedicated.exe ...)  
