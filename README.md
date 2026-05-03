@@ -1,36 +1,73 @@
 # RustOxideUpdater
 
-by Digihax, aka The Professor, and Admin/Owner of AZ Casual rust server  
-     v.01: Initial Release  
-     v.02: Fixed issue with local version check reliability.  Add cleanup at start, of local txt files created.  
-     v.03: Updated to Python, more robust and accurate version confirmation
+RustOxideUpdater is a Python script for checking and updating Oxide/uMod for a Windows Rust dedicated server.
 
-CAUTION:
-As with any resource available on the Internet, use at your own risk.  
-Use on a test server first.  
-I have tested this on multiple servers, but it may not work for you.  
-The server needs to be offline to update.  The script checks for RustDedicated.exe prior to running
+It compares the locally installed Oxide Rust DLL version with the latest version published by uMod. If the versions differ and the Rust server process is not running, it downloads and extracts the latest Oxide release.
 
-DESCRIPTION
+## What It Does
 
-This python script checks your local version of Oxide, as well as the latest version release of Oxide.    
-If there is a mismatch, it downloads and installs the latest version available online.  
-It also performs a check to see if RustDedicated.exe is running, if so, only reports a mismatch, no update attempt made.
+- Checks whether `RustDedicated.exe` is running
+- Reads the installed `Oxide.Rust.dll` file version
+- Fetches the latest Oxide Rust version from uMod
+- Downloads the latest Oxide release from GitHub when an update is needed
+- Extracts the zip into the configured Rust/Oxide install folder
+- Writes the installed version to `version.txt`
+- Logs activity to `oxide_update.log`
 
-INSTRUCTIONS
+## Requirements
 
-1) You *must* edit the python script, and update the locations of your Rust/Oxide Installation (such as c:\rust\oxide)   
-   Example: INSTALL_DIR = "c:\\rust\\oxide"
+- Windows
+- Python 3
+- A Rust dedicated server install
+- Python packages:
 
-Suggested implementation:
-   Add a line, "call python RustOxideUpdater.py" to your startup script, PRIOR to the start of your server startup line (RustDedicated.exe ...)  
-   Your startup batch file run the commands in RustOxideUpdater.bat, and continue once RustOxideUpdater is complete  
+```powershell
+pip install requests pefile psutil
+```
 
+## Configuration
 
-REQUIREMENTS   
+Edit `RustOxideUpdater.py` and set:
 
-0) Python.
-1) Rust
-2) pip install requests pefile psutil
-  
+```python
+INSTALL_DIR = "c:\\rust\\oxide"
+```
 
+This should point at the folder where the Oxide zip should be extracted.
+
+The script expects the local Oxide DLL at:
+
+```text
+<INSTALL_DIR>\RustDedicated_Data\Managed\Oxide.Rust.dll
+```
+
+## Running
+
+Run:
+
+```powershell
+python RustOxideUpdater.py
+```
+
+Suggested use is to call the script from your Rust server startup batch file before launching `RustDedicated.exe`.
+
+Example:
+
+```bat
+python RustOxideUpdater.py
+RustDedicated.exe -batchmode ...
+```
+
+## Safety Behavior
+
+- If `RustDedicated.exe` is running, the script reports the version state but does not update.
+- Downloads use a timeout so failed network calls do not hang forever.
+- The release zip is downloaded to a temporary file first.
+- Zip entries are checked before extraction to avoid writing outside the install folder.
+
+## Notes And Cautions
+
+- Test this on a staging server first.
+- Stop the Rust server before applying updates.
+- Keep backups of your server and Oxide folders before changing production installs.
+- This script updates Oxide itself, not individual plugins.
