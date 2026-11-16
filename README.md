@@ -1,5 +1,17 @@
 # RustOxideUpdater
 
+## Maintenance status
+
+**Archived — November 2026.** No active maintenance or current compatibility
+support is planned. The source and commit history remain available under the
+existing GPL-3.0 license.
+
+This updater is retained as a historical Windows Rust-server utility. Current
+uMod/GitHub release compatibility and update integrity have not been revalidated.
+
+Review it in a disposable test environment before reuse. This archive is part of
+its development history, not a recommendation for new production deployments.
+
 RustOxideUpdater is a Python script for checking and updating Oxide/uMod for a Windows Rust dedicated server.
 
 It compares the locally installed Oxide Rust DLL version with the latest version published by uMod. If the versions differ and the Rust server process is not running, it downloads and extracts the latest Oxide release.
